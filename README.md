@@ -1,6 +1,6 @@
 # Desafio Back-End Nubank
 
-![Foto de Capa](assets/imgs/foto-de-capa.png)
+![Foto de Capa](foto-de-capa.png)
 
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](./LICENSE)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
