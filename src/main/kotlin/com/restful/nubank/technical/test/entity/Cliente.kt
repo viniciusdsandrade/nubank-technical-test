@@ -1,29 +1,33 @@
 package com.restful.nubank.technical.test.entity
 
+import jakarta.persistence.CascadeType.ALL
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
-import jakarta.persistence.FetchType.LAZY
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType.IDENTITY
 import jakarta.persistence.Id
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.ManyToOne
+import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 
+
 @Entity
-@Table(name = "contatos")
-class Contato(
+@Table(name = "clientes")
+class Cliente(
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     var id: Long = 0,
 
     @Column(nullable = false)
-    var tipo: String,
+    var nome: String,
 
-    @Column(nullable = false)
-    var valor: String,
-
-    @ManyToOne(fetch = LAZY, optional = false)
-    @JoinColumn(name = "cliente_id", nullable = false)
-    var cliente: Cliente
-)
+    @Column(nullable = false, unique = true)
+    var email: String
+) {
+    @OneToMany(
+        mappedBy = "cliente",
+        cascade = [ALL],
+        orphanRemoval = true
+    )
+    var contatos: MutableList<Contato> = mutableListOf()
+}
